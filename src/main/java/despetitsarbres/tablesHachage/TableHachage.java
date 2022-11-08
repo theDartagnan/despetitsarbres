@@ -33,6 +33,7 @@ public interface TableHachage<K, V> extends Iterable<EntreeTableHachage<K, V>> {
      * @param key the key
      * @param value the value
      * @throws NullPointerException if the key is null
+     * @throws OutOfMemoryError if the table is full (if applicable)
      */
     void put(K key, V value);
 
