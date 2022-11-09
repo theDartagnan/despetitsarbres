@@ -16,9 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package despetitsarbres.maps;
-
-import despetitsarbres.tablesHachage.TableHachage;
+package despetitsarbres.tablesHachage;
 
 /**
  *
@@ -26,7 +24,11 @@ import despetitsarbres.tablesHachage.TableHachage;
  */
 public class TestedTableHachageFactory {
 
-    public static TableHachage<String, String> createExtChainMap(int mapSize) {
+    public static TableHachage<String, String> createTableExtChain(int mapSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //TODO: instancier votre tables avec la valeur de taille de table ici.
+    }
+
+    public static TableHachage<String, String> createTableCol(int mapSize, int colSize) {
         throw new UnsupportedOperationException("Not supported yet."); //TODO: instancier votre tables avec la valeur de taille de table ici.
     }
 }

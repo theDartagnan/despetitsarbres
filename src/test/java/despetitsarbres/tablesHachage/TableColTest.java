@@ -16,16 +16,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package despetitsarbres.maps;
+package despetitsarbres.tablesHachage;
 
-import despetitsarbres.tablesHachage.EntreeTableHachage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import despetitsarbres.tablesHachage.TableHachage;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -33,11 +31,11 @@ import java.util.NoSuchElementException;
  *
  * @author Rémi Venant
  */
-public class ExternalChainMapTest {
+public class TableColTest {
 
     protected TableHachage<String, String> map;
 
-    public ExternalChainMapTest() {
+    public TableColTest() {
     }
 
     @BeforeAll
@@ -50,7 +48,7 @@ public class ExternalChainMapTest {
 
     @BeforeEach
     public void setUp() {
-        this.map = TestedTableHachageFactory.createExtChainMap(10);
+        this.map = TestedTableHachageFactory.createTableCol(5, 5);
     }
 
     @AfterEach
@@ -89,7 +87,9 @@ public class ExternalChainMapTest {
         for (int i = 0; i < 10; i++) {
             this.map.put("k" + i, "val");
         }
-        this.map.put("k10", "val");
+        var assertThrows = assertThrows(OutOfMemoryError.class, () -> {
+            this.map.put("k10", "val");
+        });
     }
 
     @Test
